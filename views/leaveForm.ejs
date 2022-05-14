@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/css/leaveform.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('./navbar.ejs') %>
+
+    <div class="leave">
+      <div class="childs">
+        <form action="/leave" method="post">
+          <div class="row g-3">
+            <div class="col">
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                placeholder="Full Name"
+                aria-label="Full Name"
+              />
+            </div>
+            <div class="col">
+              <input
+                type="text"
+                name="designation"
+                class="form-control"
+                placeholder="Designation"
+                aria-label="Designation"
+              />
+            </div>
+            <div class="col">
+              <input
+                type="text"
+                name="department"
+                class="form-control"
+                placeholder="Department"
+                aria-label="Department"
+              />
+            </div>
+
+            <div class="col">
+              <input
+                type="number"
+                name="totaldays"
+                class="form-control"
+                placeholder="No of Days Applied For"
+                aria-label="No of Days Applied For"
+              />
+            </div>
+
+            <div class="col">
+              <input
+                type="text"
+                name="arrangement"
+                class="form-control"
+                placeholder="Alternate Arrangement For Work"
+                aria-label="Alternate Arrangement For Work"
+              />
+            </div>
+          </div>
+
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Leave Type</option>
+            <option value="1">Casual Leave</option>
+            <option value="2">Half Leave</option>
+            <option value="3">Hourly Leave</option>
+            <option value="4">Sick Leave</option>
+            <option value="5">Unpaid Leave</option>
+          </select>
+
+          <div class="datepicker">
+            <div class="date date1">
+              <form action="/action_page.php">
+                <label for="date">Start Date:</label>
+                <input type="date" id="date" name="startdate" />
+                <input type="submit" />
+              </form>
+            </div>
+            <div class="date date2">
+              <form action="/action_page.php">
+                <label for="date">End Date:</label>
+                <input type="date" id="date" name="enddate" />
+                <input type="submit" />
+              </form>
+            </div>
+          </div>
+
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              placeholder="Leave a comment here"
+              id="floatingTextarea2"
+              style="height: 100px"
+            ></textarea>
+            <label name="reason" for="floatingTextarea2">Reason</label>
+          </div>
+
+          <button type="submit" class="btn btn-warning submit-btn">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/js/index.js"></script>
+  </body>
+</html>
