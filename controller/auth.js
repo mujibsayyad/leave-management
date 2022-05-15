@@ -6,14 +6,6 @@ const { validationResult } = require('express-validator');
 const Leave = require('../models/leaveSchema');
 const User = require('../models/userSchema');
 
-exports.homePage = (req, res) => {
-  res.render('index', {
-    pageTitle: 'Home',
-    path: '/',
-    id: req.user.name,
-  });
-};
-
 exports.getLogin = (req, res) => {
   let message = req.flash('error');
 
@@ -156,6 +148,7 @@ exports.postRegister = (req, res) => {
         const user = new User({
           name: name,
           email: email,
+          role: 'basic',
           password: hashPassword,
         });
 

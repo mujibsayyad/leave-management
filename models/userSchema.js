@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const ROLES = require('../middleware/roles');
+
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
@@ -16,12 +18,19 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+
+    role: {
+      type: String,
+      default: 'basic',
+      enum: ['basic', 'admin'],
+    },
+
     resetToken: String,
     resetTokenExpiration: Date,
   },
+
   {
     timestamps: true,
   }
 );
-
 module.exports = mongoose.model('User', userSchema);

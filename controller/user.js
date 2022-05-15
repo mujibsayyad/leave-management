@@ -1,6 +1,15 @@
-exports.profile = (req, res) => {
-  //   console.log(req.user.name);
+exports.homePage = (req, res) => {
+  console.log(req.user.role);
+  console.log(req.session.role);
 
+  res.render('index', {
+    pageTitle: 'Home',
+    path: '/',
+    id: req.user.name,
+  });
+};
+
+exports.profile = (req, res) => {
   res.render('profile', {
     pageTitle: 'Profile',
     path: '/path',

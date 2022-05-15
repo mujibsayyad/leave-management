@@ -9,6 +9,7 @@ const mongoDBSession = require('connect-mongodb-session')(session);
 
 const User = require('./models/userSchema');
 
+const adminRoutes = require('./routes/adminRoutes');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 
@@ -41,7 +42,6 @@ app.use(flash());
 
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLoggedIn;
-  // res.locals.csrfToken = req.csrfToken();
   next();
 });
 
@@ -65,6 +65,7 @@ app.use((req, res, next) => {
 
 app.use(authRoutes);
 app.use(userRoutes);
+app.use(adminRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
